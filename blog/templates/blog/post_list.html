@@ -5,6 +5,13 @@
     <title>Gleidson Silva</title>
   </head>
   <body>
-      <h3>Gleidson Silva!!</h3>
+    <h2>Posts</h2>
+    {% for post in posts %}
+      <div class="">
+        <p>publicado: {{ post.published_date }}</p>
+        <h1><a href="#">{{ post.title }}</a></h1>
+        <p>{{ post.text|linebreaksbr }}</p>
+      </div>
+    {% endfor %}
   </body>
 </html>
