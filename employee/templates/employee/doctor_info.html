@@ -1,0 +1,9 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+	{% for doctor in doctors %}
+	<h2 class="doc-name">{{ doctor.name }}</h2>
+	<p class="doc-spec">{{ doctor.specialty }}</p>
+	{% endfor %}
+{% endblock content %}
+

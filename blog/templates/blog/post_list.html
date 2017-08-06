@@ -1,6 +1,8 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
+
+	<h2 class="doc-name"><a href="{% url 'employee.views.doctor_info' %}">{{ doctor.name }}</a></h2>
     {% for post in posts %}
         <div class="post">
             <div class="date">

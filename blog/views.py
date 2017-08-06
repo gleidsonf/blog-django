@@ -3,6 +3,7 @@ from django.utils import timezone
 from django.http import HttpResponseRedirect
 from .models import Post
 from .forms import PostForm
+from employee.models import Doctor
 
 # O ponto depois de from significa o diretório atual ou
 # o aplicativo atual. Como views.py e models.py estão no
@@ -12,8 +13,9 @@ from .forms import PostForm
 
 # Create your views here.
 def post_list(request):
+    doctor = Doctor.objects.last()
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-    return render(request, 'blog/post_list.html', {'posts': posts })
+    return render(request, 'blog/post_list.html', {'posts': posts, 'doctor': doctor })
 
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
